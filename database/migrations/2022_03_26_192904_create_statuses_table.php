@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('id');
+            $table->string('name');
+            $table->timestamp('deleted_at');
             $table->timestamps();
         });
     }

@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('investigations', function (Blueprint $table) {
             $table->bigInteger('id');
             $table->string('title');
+            $table->text('description');
+            $table->foreign("status_id")->references("id")->on("status");
+            $table->timestamp('deleted_at');
             $table->timestamps();
         });
     }
